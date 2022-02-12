@@ -240,7 +240,7 @@ function getArtistByIndex(array, index) {
   return array;
 
 }
-console.log(getArtistByIndex(artists, 0));
+console.log('Task  3: ' , getArtistByIndex(artists, 0));
 
 
 
@@ -253,20 +253,44 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
+// function get20s(array) {
+
+//   for (let i =0; i < array.length; i++){
+
+//     if( array[i].years === '1541 - 1614' ){
+
+//       return array.years;
+//     }
+
+//   }
+// }
+// console.log('task 3;' , get20s(artists));
+
 function get20s(array) {
+  const sortedArray = [];
+  for(let i = 0; i < array.length; i++){
+   if((array[i].years).includes("190")){
+     sortedArray.push(array[i].name)
+   }
+  }
+  return sortedArray;
+}
 
-  for (let i =0; i < array.length; i++){
+function lotsOfArt(array) {
+  let newArr = [];
+  for (let i = 0; i < array.length-1; i++){
+    if (array[i].paintings > 100){
 
-    if( array[i].years === '1541 - 1614' ){
-
-      return array.years;
+      newArr.push(array[i].name);
     }
     
+    }
+    return newArr;
 
-
-  }
 }
-console.log(get20s(artists));
+console.log('Task 7: ' , lotsOfArt(artists));
+
+
 
 
 
@@ -284,7 +308,7 @@ function removeArtist(array, index) {
     array.shift(index);
     return array.length;
 }
-console.log(removeArtist(artists, 0));
+console.log('Task 5: '  , removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -315,7 +339,7 @@ function addArtist(array) {
   array.push(newArtist);
   return array;
 }
-console.log(addArtist(artists));
+console.log('Task 6: ' , addArtist(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -325,9 +349,10 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+
+
+
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -339,11 +364,15 @@ Use artistInfo to do the following:
 For example artistInfo(artists, 'Frida Kahlo') will return: 
   ["Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."]
 */
-function artistInfo(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistInfo (array, name){
+  //console.log('inside function', name)
+  for(let i = 0; i < array.length; i++){
+    if(array[i].name === name){
+      return (array[i].bio);
+    }
+  }
 }
-
-
+console.log(artistInfo(artists, 'Kazimir Malevich'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
@@ -354,9 +383,17 @@ Use artistByCountry to do the following:
 For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistByCountry(array, nationality){
+  for (let i =0; i< array.length; i++){
+
+    if (array[i] === nationality && nationality=== 'Spanish'){
+
+    }
+  }
+  return array.name;
+
 }
+console.log(artistByCountry(artists, 'Spanish'));
 
 
 
