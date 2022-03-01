@@ -209,12 +209,12 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-console.log(artists[0].name);
+console.log('Task 1.1:', artists[0].name);
 
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-console.log(artists[2].bio);
+console.log('Task 1.2:', artists[2].bio);
 
 
 
@@ -223,7 +223,7 @@ console.log(artists[2].bio);
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
 
 artists[8].name = "Vincent van Gogh";
-console.log(artists[8].name);
+console.log('Task 2:', artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -275,21 +275,7 @@ function get20s(array) {
   }
   return sortedArray;
 }
-
-function lotsOfArt(array) {
-  let newArr = [];
-  for (let i = 0; i < array.length-1; i++){
-    if (array[i].paintings > 100){
-
-      newArr.push(array[i].name);
-    }
-    
-    }
-    return newArr;
-
-}
-console.log('Task 7: ' , lotsOfArt(artists));
-
+console.log('Task 4:', get20s(artists));
 
 
 
@@ -342,6 +328,7 @@ function addArtist(array) {
 console.log('Task 6: ' , addArtist(artists));
 
 
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
 1. Receive an array 
@@ -349,7 +336,19 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
+function lotsOfArt(array) {
+  let newArr = [];
+  for (let i = 0; i < array.length; i++){
+    if (array[i].paintings >= 101){
 
+      newArr.push(array[i].name);
+    }
+    
+    }
+    return newArr;
+
+}
+console.log('Task 7: ' , lotsOfArt(artists));
 
 
 
@@ -368,11 +367,11 @@ function artistInfo (array, name){
   //console.log('inside function', name)
   for(let i = 0; i < array.length; i++){
     if(array[i].name === name){
-      return (array[i].bio);
-    }
+      return [array[i].bio]; 
+    }  
   }
 }
-console.log(artistInfo(artists, 'Kazimir Malevich'));
+console.log('Task 8: ', artistInfo(artists, 'Kazimir Malevich'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
@@ -384,16 +383,18 @@ For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 
 */
 
 function artistByCountry(array, nationality){
+  let newArr = [];
   for (let i =0; i< array.length; i++){
 
-    if (array[i] === nationality && nationality=== 'Spanish'){
-
+    if (array[i].nationality === nationality){
+      newArr.push (array[i].name);
     }
   }
-  return array.name;
+  return newArr;
+  
 
 }
-console.log(artistByCountry(artists, 'Spanish'));
+console.log('Task 9:', artistByCountry(artists, 'Spanish'));
 
 
 
